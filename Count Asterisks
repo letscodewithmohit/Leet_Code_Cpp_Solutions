@@ -1,0 +1,18 @@
+class Solution {
+public:
+    int countAsterisks(string s) {
+        int ans = 0;
+        bool inbetween = false;
+
+        for(int i = 0; i<s.size(); i++){
+
+            if(!inbetween && s[i]=='*'){
+                ans++;
+            }
+            if(s[i]=='|'){
+               inbetween = !inbetween;
+            }
+        }
+        return ans;
+    }
+};
