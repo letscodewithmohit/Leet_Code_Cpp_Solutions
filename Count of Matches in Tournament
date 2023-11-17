@@ -1,0 +1,19 @@
+class Solution {
+public:
+    int numberOfMatches(int n) {
+        int matches,team,total = 0;
+        while(n!=1){
+        
+         if(n%2==0){
+           total +=  matches = n/2;
+            team = n/2;
+        }
+        if(n%2==1){
+            total += matches = (n-1)/2; 
+            team = (n-1)/2 +1;
+        }
+        n = team;
+        }
+       return total;
+    }
+};
