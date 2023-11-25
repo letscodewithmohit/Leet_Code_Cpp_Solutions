@@ -1,0 +1,22 @@
+class Solution {
+public:
+    int getWinner(vector<int>& arr, int k) {
+        int n = arr.size();
+        int wincnt = 0;
+        int arr0 = arr[0];
+
+        for(int i=1; i<n; i++){
+            if(arr0 > arr[i]){
+                wincnt++;
+            }
+            else{
+                arr0 = arr[i];
+                wincnt = 1;
+            }
+                if(wincnt == k){
+                    return arr0;
+                }
+        }
+        return arr0;
+    }
+};
