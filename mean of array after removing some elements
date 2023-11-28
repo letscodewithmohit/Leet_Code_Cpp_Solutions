@@ -1,0 +1,19 @@
+class Solution {
+public:
+    double trimMean(vector<int>& arr) {
+        sort(arr.begin(), arr.end());
+        double n = arr.size();
+        double ans = 0;
+        double count = 0;
+        //to find 5% of array
+        double erase_ele = (5*n)/100;
+
+        for(int i=erase_ele; i<n - erase_ele; i++){
+            ans = ans + arr[i];
+            count++;
+        }
+        // double remainig_ele = n-2*erase_ele;
+        return ans/count;
+
+    }
+};
