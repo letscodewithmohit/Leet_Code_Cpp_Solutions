@@ -1,0 +1,10 @@
+class Solution {
+public:
+    bool canWinNim(int n) {
+        int chances = 4;
+        if(n % chances==0){
+            return false;
+        }
+        return true;
+    }
+};
