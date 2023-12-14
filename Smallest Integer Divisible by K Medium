@@ -1,0 +1,17 @@
+class Solution {
+public:
+    int smallestRepunitDivByK(int k) {
+        int prev_rem = 0;
+       if(k == 2 || k == 5){
+           return -1;
+       } 
+
+       for(int i=1; i<=k; i++){
+           prev_rem = (prev_rem*10 + 1)%k;
+           if(prev_rem == 0){
+               return i;
+           }
+       }
+       return -1;
+    }
+};
