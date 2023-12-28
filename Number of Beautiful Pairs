@@ -1,0 +1,34 @@
+class Solution {
+public : 
+//to find the gcd of two numbers
+int getgcd(int a,int b){
+    if(a == 0){
+        return b;
+    }
+    return getgcd(b%a,a);
+}
+public :
+int firstnum(int num){
+int digit = num%10;
+while(num>0){
+digit = num % 10;
+num/=10;
+}
+return digit;
+}
+public:
+    int countBeautifulPairs(vector<int>& nums) {
+       int n = nums.size();
+       int gcount = 0;
+       for(int i=0; i<n; i++){
+           int num1 = firstnum(nums[i]);
+          for(int j=i+1; j<n; j++){
+              int num2 = nums[j]%10;
+              if((getgcd(num1,num2)==1)){
+            gcount++;
+              }
+          }
+       } 
+       return gcount;
+    }
+};
