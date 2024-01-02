@@ -1,0 +1,27 @@
+class Solution {
+public:
+    vector<vector<int>> findMatrix(vector<int>& nums) {
+         int row = 0; 
+        map<int,int>mp;
+        for(auto i : nums){
+            mp[i]++;
+
+            row = max(row,mp[i]);
+        }
+
+
+        vector<vector<int>>ans(row);
+        vector<set<int>>s(row);
+        
+        for(auto x : nums){
+            for(int i=0; i<row; i++){
+            if(s[i].find(x)==s[i].end()){
+                ans[i].push_back(x);
+                s[i].insert(x);
+                break;
+            }
+            }
+        }
+return ans;
+    }
+};
