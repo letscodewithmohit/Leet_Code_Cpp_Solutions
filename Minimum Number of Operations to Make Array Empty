@@ -1,0 +1,22 @@
+class Solution {
+public:
+    int minOperations(vector<int>& nums) {
+        unordered_map<int,int>mp;
+        for(auto i : nums){
+            mp[i]++;
+         }
+         int cnt = 0;
+         for(auto x : mp){
+             if(x.second == 1){
+                 return -1;
+             }
+           int freq = x.second;
+            cnt += freq/3;
+
+            if(freq % 3){
+                cnt++;
+            }
+         }
+return cnt;
+    }
+};
