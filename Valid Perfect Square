@@ -1,0 +1,22 @@
+class Solution {
+public:
+    bool isPerfectSquare(int num) {
+    
+    int i=0;
+    int j = sqrt(num);
+    while(i<=j){
+        int p = i*j;
+        if(p==num){
+            return true;
+            break;
+        }
+        else if(p < num){
+            i++;
+        }
+        else{
+             j--;
+        }
+    }
+    return false;
+    }
+};
