@@ -1,0 +1,44 @@
+class Solution {
+public:
+    bool closeStrings(string word1, string word2) {
+        int n1 = word1.size();
+        int n2 = word2.size();
+
+        if(n1 != n2){
+            return false;
+        } 
+        vector<int>freq1(26);
+        vector<int>freq2(26); 
+
+        for(int i=0; i<n1; i++){
+            char ch = word1[i];
+            int idx = ch - 'a';
+            freq1[idx]++;
+        }  
+        for(int i=0; i<n2; i++){
+            char ch = word2[i];
+            int idx = ch - 'a';
+             freq2[idx]++;
+        }
+//1st point
+        for(int i=0; i<26; i++){
+            if(freq1[i]!=0 && freq2[i]!=0)continue;
+            if(freq1[i]==0 && freq2[i]==0)continue;
+
+            return false;
+        }
+//2nd point
+       
+       sort(freq1.begin(),freq1.end());
+       sort(freq2.begin(),freq2.end());
+        
+        if(freq1==freq2){
+            return true;
+        }
+        else{
+            return false;
+        }
+
+
+    }
+};
