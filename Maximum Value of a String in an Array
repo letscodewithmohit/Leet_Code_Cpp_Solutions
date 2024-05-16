@@ -1,0 +1,44 @@
+class Solution {
+public:
+    int maximumValue(vector<string>& strs) {
+        // int n = strs.size();
+        // int max_val = 0;
+
+        // for(auto x : strs){
+        // bool flag = false;
+
+        // for(auto y : x){
+        //  if(y>='a' && y <='z'){
+        //     flag = true;
+        //     break;
+        //  }
+        // }
+
+        // if(flag){
+        //     max_val = max(max_val,(int)x.size());
+        // }else{
+        //     max_val = max(max_val,(int)stoi(x));
+        // }
+        // }
+        // return max_val;
+
+        int n =  strs.size();
+        int maxi = 0;
+
+        for(int i=0; i<n; i++){
+            bool flag = 0;
+            for(int j=0; j<strs[i].size(); j++){
+                if(strs[i][j] >= 'a' && strs[i][j] <= 'z'){
+                    flag = 1;
+                    break;
+                }
+            }
+            if(flag == 1){
+                maxi = max(maxi,(int)strs[i].size());
+            }else{
+                maxi = max(maxi,(int)stoi(strs[i]));
+            }
+        }
+        return maxi;
+    }
+};
