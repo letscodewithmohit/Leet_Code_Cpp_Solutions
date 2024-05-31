@@ -1,0 +1,40 @@
+class Solution {
+public:
+    vector<int> singleNumber(vector<int>& nums) {
+     
+     //brute force using nested loop
+    /*vector<int>ans;
+    int n = nums.size();
+ 
+    for(int i=0; i<n; i++){
+        int count = 0;
+        for(int j=0; j<n; j++){
+            if(nums[i] == nums[j]){
+                count++;
+                
+            }
+        }
+        if(count <= 1){
+        ans.push_back(nums[i]);
+        }
+    }    
+    return ans;*/
+
+    //better one using map
+
+    unordered_map<int,int>mp;
+    vector<int>ans;
+    int n = nums.size();
+
+    for(int i=0; i<n; i++){
+        mp[nums[i]]++;
+    }
+
+    for(const auto i : mp){
+     if(i.second == 1){
+        ans.push_back(i.first);
+     }
+    }
+    return ans;
+    }
+};
