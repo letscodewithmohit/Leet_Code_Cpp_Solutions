@@ -1,0 +1,21 @@
+class Solution {
+public:
+    int minimumChairs(string s) {
+        int c = 0;
+        int v = 0;
+        int n = s.size();
+
+        for(int i=0;i<n; i++){
+            if(s[i] == 'E' && v == 0){
+            c++;
+            }
+            else if(s[i] == 'E' && v != 0){
+            v--;
+            }
+            else if(s[i] == 'L'){
+            v++;
+            }
+        }
+        return c;
+    }
+};
