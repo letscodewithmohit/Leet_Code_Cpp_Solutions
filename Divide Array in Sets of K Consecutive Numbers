@@ -1,0 +1,31 @@
+class Solution {
+public:
+    bool isPossibleDivide(vector<int>& nums, int k) {
+        
+int n =  nums.size();
+if(n % k != 0){
+    return false;
+}
+sort(nums.begin(),nums.end());
+        map<int,int>mp;
+
+        for(auto ele : nums){
+            mp[ele]++;
+        }
+
+        for(auto ele : nums){
+            if(mp[ele] == 0){
+                continue;
+            }
+
+            for(int i=0; i<k; i++){
+                if(mp[ele + i] == 0){
+                 return false;
+                }
+                mp[ele + i]--;
+            }
+        }
+        return true;
+    }
+};
+
