@@ -1,0 +1,33 @@
+class Solution {
+public :
+bool Not_zero(int t){
+
+while(t!=0){
+    int r = t%10;
+    if(r==0){
+        return false;
+    }
+    t=t/10;
+}
+return true;
+}
+public:
+    vector<int> getNoZeroIntegers(int n) {
+        // vector<pair<int,int>>p_ans
+        vector<int>ans;
+
+        for(int i=1; i<=n; i++){
+            int A = i;
+            int B = n-i;
+            
+            if(Not_zero(A) && Not_zero(B)){
+                // p_ans.push_back({A,B});
+                ans.push_back(A);
+                ans.push_back(B);
+                break;
+            }
+
+        }
+        return ans;
+    }
+};
