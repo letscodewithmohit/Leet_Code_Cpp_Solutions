@@ -1,0 +1,32 @@
+class Solution {
+public:
+    int passThePillow(int n, int time) {
+    
+    /*int idx = 1; //position of pillow
+    int dir = 1; // L to R
+
+     while(time > 0){
+        if(idx + dir >= 1 && idx + dir <= n){
+        idx += dir;
+        time--;
+        }
+        else{
+            dir *= -1;
+        }
+     }
+return idx;*/
+
+//Approach : 2
+
+int fullround  = time / (n-1);
+int remaining = time % (n-1);
+
+if(fullround % 2== 0){
+    return remaining + 1;
+}else{
+    return n - remaining;
+}
+ return -1;
+
+    }
+};
