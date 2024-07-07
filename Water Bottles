@@ -1,0 +1,19 @@
+class Solution {
+public:
+    int numWaterBottles(int numBottles, int numExchange) {
+        int count = numBottles;
+
+     while(numBottles >= numExchange){
+        
+        count+= numBottles / numExchange;
+        
+        //find remainings
+        int t1 = numBottles % numExchange;
+        int t2 = numBottles / numExchange;
+
+        numBottles = t1+t2;
+         
+     }   
+     return count;
+    }
+};
