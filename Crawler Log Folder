@@ -1,0 +1,19 @@
+class Solution {
+public:
+    int minOperations(vector<string>& logs) {
+        
+        int dept = 0;
+        int n = logs.size();
+        int i=0;
+        while(i!=n){
+        if(logs[i] != "../" && logs[i] != "./"){
+            dept++;
+        }
+        else if(logs[i] == "../" && dept >=1){
+            dept--;
+        }
+        i++;
+        }
+        return dept;
+    }
+};
