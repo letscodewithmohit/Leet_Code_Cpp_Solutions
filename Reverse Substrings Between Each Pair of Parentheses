@@ -1,0 +1,23 @@
+class Solution {
+public:
+    string reverseParentheses(string s) {
+        
+        stack<int>skipped_st;
+
+        string result;
+
+        for(int i=0; i<s.size(); i++){//O(n)
+            if(s[i] == '('){
+                skipped_st.push(result.size());
+            }
+            else if(s[i] == ')'){
+                reverse(result.begin() + skipped_st.top() , result.end());//O(n)
+                skipped_st.pop();
+            }
+            else{
+            result.push_back(s[i]);
+            }
+        }
+        return result;
+    }
+};
