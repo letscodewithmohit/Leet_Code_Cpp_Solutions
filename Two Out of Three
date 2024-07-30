@@ -1,0 +1,76 @@
+// class Solution {
+// public:
+// vector<int>restArr(vector<int>&arr){
+//     int i=0;
+//     for(int j=1; j<arr.size(); j++){
+//         if(arr[j] != arr[i]){
+//             arr[i+1] = arr[j];
+//             i++;
+//         }
+//     }
+//     arr.resize(i+1);
+//     return arr;
+
+// }
+// public:
+//     vector<int> twoOutOfThree(vector<int>& nums1, vector<int>& nums2, vector<int>& nums3) {
+// vector<int>ans;
+    
+//         //step 1 : removes duplicate from each arrays 
+        
+//     nums1 = restArr(nums1);
+//     nums2 = restArr(nums2);
+//     nums3 = restArr(nums3);
+
+//     unordered_map<int,int>mp;
+
+//     for(auto i : nums1){
+//         mp[i]++;
+//     }
+//     for(auto i : nums2){
+//         mp[i]++;
+//     }
+//     for(auto i : nums3){
+//         mp[i]++;
+//     }
+
+//     for(auto i : mp){
+//         if(i.second >= 2){
+//             ans.push_back(i.first);
+//         }
+//     }
+//     return ans;
+//     }
+// };
+/*APPROCH 1 BRUTE FORCE WHICH IS FAILD AFTER 25 TEST CASE.*/
+
+class Solution {
+    public:
+ vector<int> twoOutOfThree(vector<int>& nums1, vector<int>& nums2, vector<int>& nums3) {
+
+//FIRST REMOVE THE DUPLICATE FROM EACH ARRAY
+unordered_set<int>set1(nums1.begin(),nums1.end());
+unordered_set<int>set2(nums2.begin(),nums2.end());
+unordered_set<int>set3(nums3.begin(),nums3.end());
+
+vector<int>ans;
+unordered_map<int,int>mp;
+
+for(int i : set1){
+    mp[i]++;
+}
+for(int i : set2){
+    mp[i]++;
+}
+for(int i : set3){
+    mp[i]++;
+}
+
+for(auto i : mp){
+    if(i.second > 1){
+        ans.push_back(i.first);
+    }
+}
+return ans;
+}
+};
