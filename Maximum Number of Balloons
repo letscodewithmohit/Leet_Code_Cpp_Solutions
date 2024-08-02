@@ -1,0 +1,43 @@
+class Solution {
+public:
+    int maxNumberOfBalloons(string text) {
+        unordered_map<char,int>mp;
+        
+
+        for(auto i : text){
+        if(i=='b' ||i =='a'|| i =='l' ||i == 'o' || i == 'n')
+        mp[i]++;
+        }
+         
+        int x = min(mp['b'],min(mp['a'],mp['n']));
+        int y = min(mp['l'],mp['o']);
+
+        int ans = min(x,y/2);
+        return ans;
+       
+    }
+};
+
+// class Solution {
+// public:
+//     int maxNumberOfBalloons(string text) {
+//         unordered_map<char, int> mp;
+
+//         // Count the frequency of each character in the input text
+//         for (auto i : text) {
+//             mp[i]++;
+//         }
+
+//         // Initialize the minimum number of 'balloon' words that can be formed
+//         int count = INT_MAX;
+
+//         // Check the count of each character needed to form the word 'balloon'
+//         count = min(count, mp['b']);
+//         count = min(count, mp['a']);
+//         count = min(count, mp['l'] / 2); // 'l' appears twice in 'balloon'
+//         count = min(count, mp['o'] / 2); // 'o' appears twice in 'balloon'
+//         count = min(count, mp['n']);
+
+//         return count;
+//     }
+// };
