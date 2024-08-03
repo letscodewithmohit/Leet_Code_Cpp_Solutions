@@ -1,0 +1,37 @@
+class Solution {
+public:
+    int calPoints(vector<string>& operations) {
+        vector<int>record;
+
+        for(int i=0; i<operations.size(); i++){
+
+            try{
+                int num = stoi(operations[i]);
+                record.push_back(num);
+            } catch(invalid_argument& e){
+             if(operations[i] =="C"){
+                record.pop_back();
+            }
+            else if(operations[i] == "D"){
+                int x = 2 * record.back();
+                record.push_back(x);
+            }
+            else if(operations[i] == "+"){
+                int size = record.size();
+                int x = record[size-1];
+                int y = record[size-2];
+                int z = x+y;
+                record.push_back(z);
+            }
+
+            }
+        }
+    
+            int ans = 0;
+            for(auto i : record){
+            ans+=i;
+            }
+        
+        return ans;
+    }
+};
