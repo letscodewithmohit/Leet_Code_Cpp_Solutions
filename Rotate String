@@ -1,0 +1,31 @@
+class Solution {
+public:
+    bool rotateString(string s, string goal) {
+        int n = s.size();
+        //brute force 
+        // for(int i=0; i<n; i++){
+        // char f = s[0];
+        // for(int j=1; j<n; j++){
+        // s[j-1] = s[j];
+        // }
+        // s[n-1] = f;
+
+        // if(s==goal){
+        //     return true;
+        // }
+        // }
+        // return false;
+
+        //optimize
+        if(s.size() != goal.size()){
+            return false;
+        }
+        
+        string concating = s + s;
+
+        if(concating.find(goal)!= string::npos){
+            return true;
+        }
+        return false;
+    }
+};
