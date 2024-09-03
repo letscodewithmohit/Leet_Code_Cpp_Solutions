@@ -1,0 +1,22 @@
+class Solution {
+public:
+    int getLucky(string s, int k) {
+        string digits = "";
+
+        for(char c : s){
+            int digit = (c - 'a' + 1);
+            digits += to_string(digit);
+        }
+
+        while(k > 0){
+            int sum = 0;
+            for(char d : digits){
+                sum += d - '0';
+            }
+            digits  = to_string(sum);
+            k--;
+        }
+        return stoi(digits);
+    }
+
+};
